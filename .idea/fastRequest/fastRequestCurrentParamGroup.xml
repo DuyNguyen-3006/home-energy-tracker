@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="fastRequestCurrentParamGroup">
+    <option name="clasDescription" value="Users" />
+    <option name="className" value="com.andrew.user_service.controller.UserController" />
+    <option name="filePath" value="" />
+    <option name="method" value="getUserById" />
+    <option name="module" value="user-service" />
+    <option name="originUrl" value="/api/v1/user/{id}" />
+    <option name="pathParamMap">
+      <map>
+        <entry key="id">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="responseParamMap">
+      <map>
+        <entry key="return">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;firstName&quot;:&quot;No comment,Type =String&quot;,&quot;lastName&quot;:&quot;No comment,Type =String&quot;,&quot;email&quot;:&quot;No comment,Type =String&quot;,&quot;address&quot;:&quot;No comment,Type =String&quot;,&quot;alerting&quot;:&quot;No comment,Type =Boolean&quot;,&quot;energyAlertingThreshold&quot;:&quot;No comment,Type =Number&quot;}}" />
+    <option name="url" value="/api/v1/user/4" />
+  </component>
+</project>
