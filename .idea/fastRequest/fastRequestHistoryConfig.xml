@@ -4,6 +4,109 @@
     <option name="historyList">
       <list>
         <ResponseHistory>
+          <option name="className" value="com.example.device_service.controller.DeviceController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="device-service" />
+          <option name="method" value="getDeviceById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.example.device_service.controller.DeviceController" />
+              <option name="method" value="getDeviceById" />
+              <option name="methodDescription" value="getDeviceById" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/device/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+              <option name="url" value="/api/v1/device/{id}" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8081/api/v1/device/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;name&quot;:&quot;name_s3k8m&quot;,&quot;type&quot;:&quot;SPEAKER&quot;,&quot;location&quot;:&quot;location_cekxd&quot;,&quot;userId&quot;:null}" />
+          <option name="url" value="/api/v1/device/{id}" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.example.device_service.controller.DeviceController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="device-service" />
+          <option name="method" value="getDeviceById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.example.device_service.controller.DeviceController" />
+              <option name="method" value="getDeviceById" />
+              <option name="methodDescription" value="getDeviceById" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/device/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+              <option name="url" value="/api/v1/device/{id}" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8081/api/v1/device/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;name&quot;:&quot;name_s3k8m&quot;,&quot;type&quot;:&quot;SPEAKER&quot;,&quot;location&quot;:&quot;location_cekxd&quot;,&quot;userId&quot;:null}" />
+          <option name="url" value="/api/v1/device/{id}" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.example.device_service.controller.DeviceController" />
+          <option name="code" value="200" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="device-service" />
+          <option name="method" value="getDeviceById" />
+          <option name="methodType" value="GET" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="className" value="com.example.device_service.controller.DeviceController" />
+              <option name="method" value="getDeviceById" />
+              <option name="methodDescription" value="getDeviceById" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/device/{id}" />
+              <option name="pathParamsKeyValueListJson" value="[{&quot;comment&quot;:&quot;&quot;,&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;id&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+              <option name="url" value="/api/v1/device/{id}" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8081/api/v1/device/1&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;Request Body: &#13;&#10;    null&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;name&quot;:&quot;name_s3k8m&quot;,&quot;type&quot;:&quot;SPEAKER&quot;,&quot;location&quot;:&quot;location_cekxd&quot;,&quot;userId&quot;:null}" />
+          <option name="url" value="/api/v1/device/{id}" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.example.device_service.controller.DeviceController" />
+          <option name="code" value="201" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="device-service" />
+          <option name="method" value="createDevice" />
+          <option name="methodType" value="POST" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="bodyKeyValueListJson" value="{&#10;  &quot;name&quot;: &quot;name_s3k8m&quot;,&#10;  &quot;type&quot;: &quot;SPEAKER&quot;,&#10;  &quot;location&quot;: &quot;location_cekxd&quot;,&#10;  &quot;userId&quot;: 1&#10;}" />
+              <option name="className" value="com.example.device_service.controller.DeviceController" />
+              <option name="jsonDocument" value="{&#10;  &quot;id&quot;: &quot;No comment,Value =1&quot;,&#10;  &quot;name&quot;: &quot;No comment,Value =name_s3k8m&quot;,&#10;  &quot;type&quot;: &quot;No comment,Value =SPEAKER&quot;,&#10;  &quot;location&quot;: &quot;No comment,Value =location_cekxd&quot;,&#10;  &quot;userId&quot;: &quot;No comment,Value =1&quot;&#10;}" />
+              <option name="method" value="createDevice" />
+              <option name="methodDescription" value="createDevice" />
+              <option name="methodType" value="POST" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/device" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+              <option name="url" value="/api/v1/device" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8081/api/v1/device&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Content-Length: 77&#13;&#10;    Content-Type: application/json;charset=UTF-8&#13;&#10;Request Body: &#13;&#10;    {&quot;name&quot;:&quot;name_s3k8m&quot;,&quot;location&quot;:&quot;location_cekxd&quot;,&quot;type&quot;:&quot;SPEAKER&quot;,&quot;userId&quot;:1}&#13;&#10;" />
+          <option name="response" value="{&quot;id&quot;:1,&quot;name&quot;:&quot;name_s3k8m&quot;,&quot;type&quot;:&quot;SPEAKER&quot;,&quot;location&quot;:&quot;location_cekxd&quot;,&quot;userId&quot;:null}" />
+          <option name="url" value="/api/v1/device" />
+        </ResponseHistory>
+        <ResponseHistory>
           <option name="className" value="com.andrew.user_service.controller.UserController" />
           <option name="code" value="200" />
           <option name="enableEnv" value="local" />

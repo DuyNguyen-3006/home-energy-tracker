@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="fastRequestCurrentParamGroup">
-    <option name="clasDescription" value="Users" />
-    <option name="className" value="com.andrew.user_service.controller.UserController" />
+    <option name="clasDescription" value="Devices" />
+    <option name="className" value="com.example.device_service.controller.DeviceController" />
     <option name="filePath" value="" />
-    <option name="method" value="getUserById" />
-    <option name="module" value="user-service" />
-    <option name="originUrl" value="/api/v1/user/{id}" />
+    <option name="method" value="getDeviceById" />
+    <option name="module" value="device-service" />
+    <option name="originUrl" value="/api/v1/device/{id}" />
     <option name="pathParamMap">
       <map>
         <entry key="id">
@@ -25,7 +25,7 @@
         </entry>
       </map>
     </option>
-    <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;firstName&quot;:&quot;No comment,Type =String&quot;,&quot;lastName&quot;:&quot;No comment,Type =String&quot;,&quot;email&quot;:&quot;No comment,Type =String&quot;,&quot;address&quot;:&quot;No comment,Type =String&quot;,&quot;alerting&quot;:&quot;No comment,Type =Boolean&quot;,&quot;energyAlertingThreshold&quot;:&quot;No comment,Type =Number&quot;}}" />
-    <option name="url" value="/api/v1/user/4" />
+    <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+    <option name="url" value="/api/v1/device/1" />
   </component>
 </project>
