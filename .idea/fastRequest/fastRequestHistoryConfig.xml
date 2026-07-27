@@ -4,6 +4,84 @@
     <option name="historyList">
       <list>
         <ResponseHistory>
+          <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+          <option name="code" value="201" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="ingestion-service" />
+          <option name="method" value="ingestData" />
+          <option name="methodType" value="POST" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="bodyKeyValueListJson" value="{&#10;  &quot;deviceId&quot;: 1,&#10;  &quot;energyUsage&quot;: 1.0,&#10;  &quot;timestamp&quot;: &quot;2026-07-26T23:18:21+00:00&quot;&#10;}" />
+              <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+              <option name="jsonDocument" value="{&#10;  &quot;deviceId&quot;: &quot;No comment,Value =1&quot;,&#10;  &quot;energyUsage&quot;: &quot;No comment,Value =1.0&quot;,&#10;  &quot;timestamp&quot;: &quot;No comment,Value =&quot;&#10;}" />
+              <option name="method" value="ingestData" />
+              <option name="methodDescription" value="ingestData" />
+              <option name="methodType" value="POST" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/ingestion" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="url" value="/api/v1/ingestion" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8082/api/v1/ingestion&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Content-Length: 72&#13;&#10;    Content-Type: application/json;charset=UTF-8&#13;&#10;Request Body: &#13;&#10;    {&quot;energyUsage&quot;:1.0,&quot;deviceId&quot;:1,&quot;timestamp&quot;:&quot;2026-07-26T23:18:21+00:00&quot;}&#13;&#10;" />
+          <option name="url" value="/api/v1/ingestion" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+          <option name="code" value="201" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="ingestion-service" />
+          <option name="method" value="ingestData" />
+          <option name="methodType" value="POST" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="bodyKeyValueListJson" value="{&#10;  &quot;deviceId&quot;: 1,&#10;  &quot;energyUsage&quot;: 1.0,&#10;  &quot;timestamp&quot;: &quot;2026-07-26T23:18:21+00:00&quot;&#10;}" />
+              <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+              <option name="jsonDocument" value="{&#10;  &quot;deviceId&quot;: &quot;No comment,Value =1&quot;,&#10;  &quot;energyUsage&quot;: &quot;No comment,Value =1.0&quot;,&#10;  &quot;timestamp&quot;: &quot;No comment,Value =&quot;&#10;}" />
+              <option name="method" value="ingestData" />
+              <option name="methodDescription" value="ingestData" />
+              <option name="methodType" value="POST" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/ingestion" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="url" value="/api/v1/ingestion" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8082/api/v1/ingestion&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Content-Length: 72&#13;&#10;    Content-Type: application/json;charset=UTF-8&#13;&#10;Request Body: &#13;&#10;    {&quot;energyUsage&quot;:1.0,&quot;deviceId&quot;:1,&quot;timestamp&quot;:&quot;2026-07-26T23:18:21+00:00&quot;}&#13;&#10;" />
+          <option name="url" value="/api/v1/ingestion" />
+        </ResponseHistory>
+        <ResponseHistory>
+          <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+          <option name="code" value="201" />
+          <option name="enableEnv" value="local" />
+          <option name="enableProject" value="ingestion-service" />
+          <option name="method" value="ingestData" />
+          <option name="methodType" value="POST" />
+          <option name="paramGroup">
+            <ParamGroupCollection>
+              <option name="bodyKeyValueListJson" value="{&#10;  &quot;deviceId&quot;: 1,&#10;  &quot;energyUsage&quot;: 1.0,&#10;  &quot;timestamp&quot;: &quot;&quot;&#10;}" />
+              <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+              <option name="jsonDocument" value="{&#10;  &quot;deviceId&quot;: &quot;No comment,Value =1&quot;,&#10;  &quot;energyUsage&quot;: &quot;No comment,Value =1.0&quot;,&#10;  &quot;timestamp&quot;: &quot;No comment,Value =&quot;&#10;}" />
+              <option name="method" value="ingestData" />
+              <option name="methodDescription" value="ingestData" />
+              <option name="methodType" value="POST" />
+              <option name="multipartKeyValueListJson" value="[]" />
+              <option name="originUrl" value="/api/v1/ingestion" />
+              <option name="pathParamsKeyValueListJson" value="[]" />
+              <option name="url" value="/api/v1/ingestion" />
+              <option name="urlEncodedKeyValueListJson" value="[]" />
+              <option name="urlParamsKeyValueListJson" value="[]" />
+            </ParamGroupCollection>
+          </option>
+          <option name="requestInfo" value="Request Url: http://localhost:8082/api/v1/ingestion&#13;&#10;Request Headers: &#13;&#10;    Accept: application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#13;&#10;    User-Agent: Fast Request/2025.1.9.1&#13;&#10;    Accept-Encoding: gzip, deflate&#13;&#10;    Content-Length: 47&#13;&#10;    Content-Type: application/json;charset=UTF-8&#13;&#10;Request Body: &#13;&#10;    {&quot;energyUsage&quot;:1.0,&quot;deviceId&quot;:1,&quot;timestamp&quot;:&quot;&quot;}&#13;&#10;" />
+          <option name="url" value="/api/v1/ingestion" />
+        </ResponseHistory>
+        <ResponseHistory>
           <option name="className" value="com.example.device_service.controller.DeviceController" />
           <option name="code" value="200" />
           <option name="enableEnv" value="local" />

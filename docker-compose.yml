@@ -12,6 +12,97 @@ services:
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
       - db-data:/var/log/mysql
+  kafka:
+    image: apache/kafka:latest
+    container_name: kafka
+    ports:
+      # Only the EXTERNAL listener is reachable from the host.
+      # 9092 (internal) and 9093 (controller) stay inside the Docker network.
+      - "9094:9094"
+
+    environment:
+      ############################################
+      # KRaft Metadata & Node Identity
+      ############################################
+      # Unique ID for this Kafka node
+      KAFKA_NODE_ID: 1
+      # Unique Kafka cluster identifier (required for KRaft mode).
+      # NOTE: the apache/kafka image reads CLUSTER_ID, not KAFKA_CLUSTER_ID.
+      # Must be a 22-char base64 UUID: bin/kafka-storage.sh random-uuid
+      CLUSTER_ID: 'Zr2KCHooTb2qId75ClyYOw'
+      # Node roles — this instance will act as BOTH a broker and controller
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+
+      ############################################
+      # Controller Quorum Configuration (Raft)
+      ############################################
+      # List of controller nodes that form the Raft quorum
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
+      # Listener name used by controllers for internal Raft communication
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+
+      ############################################
+      # Network Listeners (Internal, External & Controller)
+      ############################################
+      # Define all listener endpoints for this Kafka node
+      KAFKA_LISTENERS: >
+        PLAINTEXT://0.0.0.0:9092,
+        EXTERNAL://0.0.0.0:9094,
+        CONTROLLER://0.0.0.0:9093
+
+      # What each listener advertises to connecting clients
+      # Internal (Docker containers): kafka:9092
+      # External (host machine): localhost:9094
+      KAFKA_ADVERTISED_LISTENERS: >
+        PLAINTEXT://kafka:9092,
+        EXTERNAL://localhost:9094
+
+      # Maps listener names to their security protocols
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: >
+        CONTROLLER:PLAINTEXT,
+        PLAINTEXT:PLAINTEXT,
+        EXTERNAL:PLAINTEXT
+
+      # Which listener brokers should use for internal communication
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+
+      ############################################
+      #  Single-Node Cluster Safety Settings
+      #    (because replication >1 would break)
+      ############################################
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+
+      ############################################
+      #  Broker Defaults & Quality-of-Life Settings
+      ############################################
+      # Speed up consumer group startup
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      # Auto-create topics if they don't already exist
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      # Default number of partitions per topic
+      KAFKA_NUM_PARTITIONS: 1
+      # Where log segments live. This image defaults to /tmp/kafka-logs,
+      # so it must be set explicitly for the volume below to persist anything.
+      KAFKA_LOG_DIRS: '/var/lib/kafka/data'
+
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: ghcr.io/kafbat/kafka-ui:latest
+    ports:
+      - "8070:8080"
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092  # Use internal Docker network name
+      DYNAMIC_CONFIG_ENABLED: 'true'
+    restart: unless-stopped
 
 volumes:
   db-data:
+  kafka-data:

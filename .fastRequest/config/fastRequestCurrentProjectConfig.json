@@ -13,6 +13,15 @@
 				}
 			],
 			"name":"device-service"
+		},
+		{
+			"hostGroup":[
+				{
+					"env":"local",
+					"url":"http://localhost:8082"
+				}
+			],
+			"name":"ingestion-service"
 		}
 	],
 	"envList":[
@@ -25,7 +34,8 @@
 	"postScript":"",
 	"preScript":"",
 	"projectList":[
-		"device-service"
+		"device-service",
+		"ingestion-service"
 	],
 	"searchTruncatedCode":"",
 	"syncModel":{
