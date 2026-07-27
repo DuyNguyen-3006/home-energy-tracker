@@ -22,6 +22,15 @@
 				}
 			],
 			"name":"ingestion-service"
+		},
+		{
+			"hostGroup":[
+				{
+					"env":"local",
+					"url":"http://localhost:8080"
+				}
+			],
+			"name":"user-service"
 		}
 	],
 	"envList":[
@@ -35,7 +44,8 @@
 	"preScript":"",
 	"projectList":[
 		"device-service",
-		"ingestion-service"
+		"ingestion-service",
+		"user-service"
 	],
 	"searchTruncatedCode":"",
 	"syncModel":{
