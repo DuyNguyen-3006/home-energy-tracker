@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ClaudeCodeEditorTabs">
-    <option name="activeSessionId" value="127c0645-a0cd-4c6c-a4f6-4ee73cd9d68c" />
+    <option name="activeSessionId" value="7613758b-63b6-4849-b418-e682466df6e5" />
     <option name="openSessionIds">
       <list>
         <option value="6b721f23-1368-43dd-8420-b2cfda7a276e" />
         <option value="127c0645-a0cd-4c6c-a4f6-4ee73cd9d68c" />
+        <option value="7613758b-63b6-4849-b418-e682466df6e5" />
       </list>
     </option>
     <option name="sessionPaths">
       <map>
         <entry key="127c0645-a0cd-4c6c-a4f6-4ee73cd9d68c" value="/sessions/f837cea1-ee90-4397-b3d3-8f2d803a99bb" />
         <entry key="6b721f23-1368-43dd-8420-b2cfda7a276e" value="/sessions/b1437e5a-bb55-4f65-aae5-f7ef1cf0f070" />
+        <entry key="7613758b-63b6-4849-b418-e682466df6e5" value="/sessions/993ebf25-73df-42dd-aec4-0779bb732952" />
       </map>
     </option>
     <option name="sessionTitles">
       <map>
         <entry key="127c0645-a0cd-4c6c-a4f6-4ee73cd9d68c" value="HÃY GIẢI THÍCH PHẦN SETUP KAFKA TRONG DOCKER COMPO" />
         <entry key="6b721f23-1368-43dd-8420-b2cfda7a276e" value="install superpowers@claude-plugins-official cài ch" />
+        <entry key="7613758b-63b6-4849-b418-e682466df6e5" value="2026-07-27T15:07:18.357+07:00 WARN 7956 --- [devi" />
       </map>
     </option>
   </component>

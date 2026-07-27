@@ -3,19 +3,30 @@
   <component name="fastRequestCurrentParamGroup">
     <option name="bodyParamMap">
       <map>
-        <entry key="request">
+        <entry key="deviceDto">
           <value>
             <Object />
           </value>
         </entry>
       </map>
     </option>
-    <option name="className" value="com.andrew.ingestion_service.controller.IngestionController" />
+    <option name="clasDescription" value="Devices" />
+    <option name="className" value="com.example.device_service.controller.DeviceController" />
     <option name="filePath" value="" />
-    <option name="method" value="ingestData" />
+    <option name="method" value="createDevice" />
     <option name="methodType" value="POST" />
-    <option name="module" value="ingestion-service" />
-    <option name="originUrl" value="/api/v1/ingestion" />
-    <option name="url" value="/api/v1/ingestion" />
+    <option name="module" value="device-service" />
+    <option name="originUrl" value="/api/v1/device" />
+    <option name="responseParamMap">
+      <map>
+        <entry key="return">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="returnDocument" value="{&quot;status&quot;:{},&quot;headers&quot;:{&quot;headers&quot;:{}},&quot;body&quot;:{&quot;id&quot;:&quot;No comment,Type =Number&quot;,&quot;name&quot;:&quot;No comment,Type =String&quot;,&quot;type&quot;:&quot;No comment,Type =String&quot;,&quot;location&quot;:&quot;No comment,Type =String&quot;,&quot;userId&quot;:&quot;No comment,Type =Number&quot;}}" />
+    <option name="url" value="/api/v1/device" />
   </component>
 </project>

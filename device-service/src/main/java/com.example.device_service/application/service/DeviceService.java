@@ -61,6 +61,7 @@ public class DeviceService implements DeviceServiceInterface {
         deviceDto.setName(device.getName());
         deviceDto.setLocation(device.getLocation());
         deviceDto.setType(device.getType());
+        deviceDto.setUserId(device.getUserId());
         return deviceDto;
     }
 }
