@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ClaudeCodeEditorTabs">
-    <option name="activeSessionId" value="305b8d32-bd68-42a4-937d-842ecf0d7f61" />
+    <option name="activeSessionId" value="c3ea9dd0-adab-4e13-a320-048b69515e20" />
     <option name="openSessionIds">
       <list>
-        <option value="6b721f23-1368-43dd-8420-b2cfda7a276e" />
-        <option value="7613758b-63b6-4849-b418-e682466df6e5" />
-        <option value="d856ffa6-44c2-463b-87eb-7490b393c2c0" />
-        <option value="305b8d32-bd68-42a4-937d-842ecf0d7f61" />
+        <option value="c3ea9dd0-adab-4e13-a320-048b69515e20" />
       </list>
     </option>
     <option name="sessionPaths">
       <map>
-        <entry key="305b8d32-bd68-42a4-937d-842ecf0d7f61" value="/sessions/06aa9a71-7596-4134-91e6-e0a5a98c23de" />
-        <entry key="6b721f23-1368-43dd-8420-b2cfda7a276e" value="/sessions/b1437e5a-bb55-4f65-aae5-f7ef1cf0f070" />
-        <entry key="7613758b-63b6-4849-b418-e682466df6e5" value="/sessions/993ebf25-73df-42dd-aec4-0779bb732952" />
-        <entry key="d856ffa6-44c2-463b-87eb-7490b393c2c0" value="/sessions/06aa9a71-7596-4134-91e6-e0a5a98c23de" />
+        <entry key="c3ea9dd0-adab-4e13-a320-048b69515e20" value="/sessions/a77b2df0-dab9-4bd6-ad3b-780d7b6653eb" />
       </map>
     </option>
     <option name="sessionTitles">
       <map>
-        <entry key="305b8d32-bd68-42a4-937d-842ecf0d7f61" value="Error starting ApplicationContext. To display the" />
-        <entry key="6b721f23-1368-43dd-8420-b2cfda7a276e" value="install superpowers@claude-plugins-official cài ch" />
-        <entry key="7613758b-63b6-4849-b418-e682466df6e5" value="2026-07-27T15:07:18.357+07:00 WARN 7956 --- [devic" />
-        <entry key="d856ffa6-44c2-463b-87eb-7490b393c2c0" value="Error starting ApplicationContext. To display the" />
+        <entry key="c3ea9dd0-adab-4e13-a320-048b69515e20" value="hãy đọc cách tôi config swagger ở user service và" />
       </map>
     </option>
   </component>
