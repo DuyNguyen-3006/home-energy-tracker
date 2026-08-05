@@ -2,8 +2,9 @@ package com.andrew.user_service.controller;
 
 import com.andrew.user_service.application.dto.UserDto;
 import com.andrew.user_service.application.service.UserService;
-import com.andrew.user_service.domain.entity.User;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,36 +20,24 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
 
         UserDto created = userService.createUser(userDto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
     @GetMapping("{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable Long id){
-        UserDto userDto = userService.getUserById(id);
-        if (userDto == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return ResponseEntity.ok(userDto);
+    public ResponseEntity<UserDto> getUserById(@PathVariable @Positive Long id){
+        return ResponseEntity.ok(userService.getUserById(id));
     }
     @PutMapping("{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id,
-                                             @RequestBody UserDto userDto) {
-        try {
-            userService.updateUser(id, userDto);
-            return ResponseEntity.ok("User updated");
-        } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<String> updateUser(@PathVariable @Positive Long id,
+                                             @Valid @RequestBody UserDto userDto) {
+        userService.updateUser(id, userDto);
+        return ResponseEntity.ok("User updated");
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        try {
-            userService.deleteUser(id);
-            return ResponseEntity.ok("Delete sucessfully");
-        } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<String> deleteUser(@PathVariable @Positive Long id) {
+        userService.deleteUser(id);
+        return ResponseEntity.ok("Delete sucessfully");
     }
 }

@@ -28,3 +28,15 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Secrets - KHONG BAO GIO commit ###
+.env
+*.pem
+
+### Build artifacts ###
+target/
+cp.txt
+
+### Docker volume data ###
+influxdb_data/
+volume-data/

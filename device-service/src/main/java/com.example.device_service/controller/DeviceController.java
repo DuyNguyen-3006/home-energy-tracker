@@ -3,6 +3,8 @@ package com.example.device_service.controller;
 import com.example.device_service.application.dto.DeviceDto;
 import com.example.device_service.application.interfaces.DeviceServiceInterface;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,43 +23,30 @@ public class DeviceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DeviceDto> getDeviceById(@PathVariable Long id) {
-        try {
-            DeviceDto deviceDto = deviceServiceInterface.getDeviceById(id);
-            return ResponseEntity.ok(deviceDto);
-        } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<DeviceDto> getDeviceById(@PathVariable @Positive Long id) {
+        return ResponseEntity.ok(deviceServiceInterface.getDeviceById(id));
     }
 
     @PostMapping
-    public ResponseEntity<DeviceDto> createDevice(@RequestBody DeviceDto deviceDto) {
+    public ResponseEntity<DeviceDto> createDevice(@Valid @RequestBody DeviceDto deviceDto) {
         DeviceDto createdDevice = deviceServiceInterface.createDevice(deviceDto);
         return new ResponseEntity<>(createdDevice, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DeviceDto> updateDevice(@PathVariable Long id, @RequestBody DeviceDto deviceDto) {
-        try {
-            DeviceDto updatedDevice = deviceServiceInterface.updateDevice(id, deviceDto);
-            return ResponseEntity.ok(updatedDevice);
-        } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<DeviceDto> updateDevice(@PathVariable @Positive Long id,
+                                                 @Valid @RequestBody DeviceDto deviceDto) {
+        return ResponseEntity.ok(deviceServiceInterface.updateDevice(id, deviceDto));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDevice(@PathVariable Long id) {
-        try {
-            deviceServiceInterface.deleteDevice(id);
-            return ResponseEntity.noContent().build();
-        } catch (IllegalArgumentException ex) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Void> deleteDevice(@PathVariable @Positive Long id) {
+        deviceServiceInterface.deleteDevice(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(@PathVariable Long userId) {
+    public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(@PathVariable @Positive Long userId) {
         List<DeviceDto> devices = deviceServiceInterface.getAllDevicesByUserId(userId);
         return ResponseEntity.ok(devices);
     }

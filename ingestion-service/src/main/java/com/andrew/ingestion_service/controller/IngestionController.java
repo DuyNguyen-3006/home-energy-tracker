@@ -2,6 +2,7 @@ package com.andrew.ingestion_service.controller;
 
 import com.andrew.ingestion_service.application.dto.EnergyUsageDto;
 import com.andrew.ingestion_service.application.service.IngestionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class IngestionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void ingestData(@RequestBody EnergyUsageDto request) {
+    public void ingestData(@Valid @RequestBody EnergyUsageDto request) {
         ingestionService.ingestEnergyUsage(request);
     }
 }

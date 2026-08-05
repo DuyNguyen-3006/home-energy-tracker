@@ -1,5 +1,6 @@
 package com.andrew.api_gateway.route;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.server.mvc.filter.CircuitBreakerFilterFunctions;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.context.annotation.Bean;
@@ -19,11 +20,14 @@ import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFuncti
 @Configuration
 public class UserServiceRoute{
 
+    @Value("${services.user.url}")
+    private String userServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> userRoute() {
         return route("user-service")
                 .route(RequestPredicates.path("/api/v1/user/**"), http())
-                .before(uri("http://localhost:8080"))
+                .before(uri(userServiceUrl))
                 .filter(CircuitBreakerFilterFunctions.circuitBreaker(
                         "userServiceCircuitBreaker",
                         URI.create("forward:/fallbackRoute")
@@ -44,7 +48,7 @@ public class UserServiceRoute{
     public RouterFunction<ServerResponse> userServiceApiDocs() {
         return GatewayRouterFunctions.route("userServiceApiDocs")
                 .route(RequestPredicates.path("/docs/user-service/v3/api-docs"), http())
-                .before(uri("http://localhost:8080"))
+                .before(uri(userServiceUrl))
                 .filter(setPath("/v3/api-docs"))
                 .build();
     }

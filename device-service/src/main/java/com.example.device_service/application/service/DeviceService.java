@@ -3,6 +3,7 @@ package com.example.device_service.application.service;
 import com.example.device_service.application.dto.DeviceDto;
 import com.example.device_service.application.interfaces.DeviceServiceInterface;
 import com.example.device_service.domain.entity.Device;
+import com.example.device_service.infrastructure.exception.DeviceNotFoundException;
 import com.example.device_service.infrastructure.repositories.DeviceRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class DeviceService implements DeviceServiceInterface {
     @Override
     public DeviceDto getDeviceById(Long id) {
         Device device = deviceRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Device not found with id: " +  id));
+                .orElseThrow(() -> new DeviceNotFoundException(id));
         return mapToDto(device);
     }
 
@@ -40,7 +41,7 @@ public class DeviceService implements DeviceServiceInterface {
     @Override
     public DeviceDto updateDevice(Long id, DeviceDto request) {
         Device device = deviceRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Device not found with id: " + id));
+                .orElseThrow(() -> new DeviceNotFoundException(id));
 
         device.setName(request.getName());
         device.setLocation(request.getLocation());
@@ -54,7 +55,7 @@ public class DeviceService implements DeviceServiceInterface {
     @Override
     public void deleteDevice(Long id) {
         Device device = deviceRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Device not found with id: " + id));
+                .orElseThrow(() -> new DeviceNotFoundException(id));
         deviceRepository.delete(device);
     }
 

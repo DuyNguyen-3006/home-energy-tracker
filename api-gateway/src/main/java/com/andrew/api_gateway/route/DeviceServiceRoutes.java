@@ -1,5 +1,6 @@
 package com.andrew.api_gateway.route;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +17,14 @@ import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFuncti
 @Configuration
 public class DeviceServiceRoutes {
 
+    @Value("${services.device.url}")
+    private String deviceServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> deviceRoute() {
         return route("device-service")
                 .route(RequestPredicates.path("/api/v1/device/**"), http())
-                .before(uri("http://localhost:8081"))
+                .before(uri(deviceServiceUrl))
                 .build();
     }
 
@@ -37,7 +41,7 @@ public class DeviceServiceRoutes {
     public RouterFunction<ServerResponse> deviceServiceApiDocs() {
         return GatewayRouterFunctions.route("deviceServiceApiDocs")
                 .route(RequestPredicates.path("/docs/device-service/v3/api-docs"), http())
-                .before(uri("http://localhost:8081"))
+                .before(uri(deviceServiceUrl))
                 .filter(setPath("/v3/api-docs"))
                 .build();
     }

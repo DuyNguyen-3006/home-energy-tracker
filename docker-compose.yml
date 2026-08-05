@@ -1,6 +1,7 @@
 services:
   mysql:
-    image: mysql:8.3.0
+    # 8.4 = ban LTS, khop voi RDS (8.4.9). 8.3 la ban Innovation da het ho tro.
+    image: mysql:8.4
     container_name: mysql
     restart: always
     environment:
@@ -12,6 +13,12 @@ services:
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
       - db-data:/var/log/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
   kafka:
     image: apache/kafka:latest
     container_name: kafka
@@ -90,6 +97,13 @@ services:
     volumes:
       - kafka-data:/var/lib/kafka/data
 
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 40s
+
   kafka-ui:
     container_name: kafka-ui
     image: ghcr.io/kafbat/kafka-ui:latest
@@ -118,6 +132,12 @@ services:
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-token
     volumes:
       - ./influxdb_data:/var/lib/influxdb2
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
 
   mailpit:
     image: axllent/mailpit:latest

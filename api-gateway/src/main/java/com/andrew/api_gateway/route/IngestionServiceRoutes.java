@@ -1,5 +1,6 @@
 package com.andrew.api_gateway.route;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +17,14 @@ import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFuncti
 @Configuration
 public class IngestionServiceRoutes {
 
+    @Value("${services.ingestion.url}")
+    private String ingestionServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> ingestionRoute() {
         return route("ingestion-service")
                 .route(RequestPredicates.path("/api/v1/ingestion/**"), http())
-                .before(uri("http://localhost:8082"))
+                .before(uri(ingestionServiceUrl))
                 .build();
     }
 
@@ -37,7 +41,7 @@ public class IngestionServiceRoutes {
     public RouterFunction<ServerResponse> ingestionServiceApiDocs() {
         return GatewayRouterFunctions.route("ingestionServiceApiDocs")
                 .route(RequestPredicates.path("/docs/ingestion-service/v3/api-docs"), http())
-                .before(uri("http://localhost:8082"))
+                .before(uri(ingestionServiceUrl))
                 .filter(setPath("/v3/api-docs"))
                 .build();
     }

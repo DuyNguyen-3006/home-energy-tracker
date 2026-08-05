@@ -1,5 +1,6 @@
 package com.andrew.api_gateway.route;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +17,14 @@ import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFuncti
 @Configuration
 public class InsightServiceRoutes {
 
+    @Value("${services.insight.url}")
+    private String insightServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> insightRoute() {
         return route("insight-service")
                 .route(RequestPredicates.path("/api/v1/insight/**"), http())
-                .before(uri("http://localhost:8085"))
+                .before(uri(insightServiceUrl))
                 .build();
     }
 
@@ -37,7 +41,7 @@ public class InsightServiceRoutes {
     public RouterFunction<ServerResponse> insightServiceApiDocs() {
         return GatewayRouterFunctions.route("insightServiceApiDocs")
                 .route(RequestPredicates.path("/docs/insight-service/v3/api-docs"), http())
-                .before(uri("http://localhost:8085"))
+                .before(uri(insightServiceUrl))
                 .filter(setPath("/v3/api-docs"))
                 .build();
     }
