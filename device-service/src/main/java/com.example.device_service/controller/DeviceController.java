@@ -5,6 +5,9 @@ import com.example.device_service.application.interfaces.DeviceServiceInterface;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +51,15 @@ public class DeviceController {
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(@PathVariable @Positive Long userId) {
         List<DeviceDto> devices = deviceServiceInterface.getAllDevicesByUserId(userId);
+        return ResponseEntity.ok(devices);
+    }
+
+    @GetMapping("/user/{userId}/page")
+    public ResponseEntity<Page<DeviceDto>> getDevicesByUserIdPaginated(@PathVariable @Positive Long userId,
+                                                                       @RequestParam(defaultValue = "0") int page,
+                                                                       @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<DeviceDto> devices = deviceServiceInterface.getAddDevicesByUserId(userId, pageable);
         return ResponseEntity.ok(devices);
     }
 }

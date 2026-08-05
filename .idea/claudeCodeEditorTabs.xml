@@ -4,20 +4,17 @@
     <option name="activeSessionId" value="4f3a2df6-3940-44e4-bec9-3535e8d3899b" />
     <option name="openSessionIds">
       <list>
-        <option value="c3ea9dd0-adab-4e13-a320-048b69515e20" />
         <option value="4f3a2df6-3940-44e4-bec9-3535e8d3899b" />
       </list>
     </option>
     <option name="sessionPaths">
       <map>
         <entry key="4f3a2df6-3940-44e4-bec9-3535e8d3899b" value="/sessions/0bede243-f4f3-42c5-8a1f-9c1c54e571b9" />
-        <entry key="c3ea9dd0-adab-4e13-a320-048b69515e20" value="/sessions/a77b2df0-dab9-4bd6-ad3b-780d7b6653eb" />
       </map>
     </option>
     <option name="sessionTitles">
       <map>
         <entry key="4f3a2df6-3940-44e4-bec9-3535e8d3899b" value="hai folder influxdv và volume để làm gì" />
-        <entry key="c3ea9dd0-adab-4e13-a320-048b69515e20" value="hãy đọc cách tôi config swagger ở user service và" />
       </map>
     </option>
   </component>
