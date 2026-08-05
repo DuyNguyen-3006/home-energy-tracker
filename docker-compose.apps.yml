@@ -1,0 +1,152 @@
+# 7 Spring Boot service, BUILD TU SOURCE - dung de test o may local.
+#
+# Chay:  docker compose -f docker-compose.yml -f docker-compose.apps.yml up -d --build
+# Xem:   docker compose -f docker-compose.yml -f docker-compose.apps.yml ps
+# Log:   docker compose -f docker-compose.yml -f docker-compose.apps.yml logs -f user-service
+# Dung:  docker compose -f docker-compose.yml -f docker-compose.apps.yml down
+#
+# Diem mau chot: trong mang Docker, cac container goi nhau bang TEN SERVICE
+# (mysql, kafka, influxdb...) chu khong phai localhost. Va dung CONG NOI BO:
+#   kafka     -> 9092  (khong phai 9094, do la cong map ra host)
+#   influxdb  -> 8086  (khong phai 8072)
+#   keycloak  -> 8080  (khong phai 8091)
+
+services:
+
+  user-service:
+    build: ./user-service
+    image: het/user-service:local
+    container_name: user-service
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/home_energy_tracker
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    depends_on:
+      mysql:
+        condition: service_healthy
+    mem_limit: 512m
+    restart: unless-stopped
+
+  device-service:
+    build: ./device-service
+    image: het/device-service:local
+    container_name: device-service
+    ports:
+      - "8081:8081"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/home_energy_tracker
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    depends_on:
+      mysql:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+    mem_limit: 512m
+    restart: unless-stopped
+
+  ingestion-service:
+    build: ./ingestion-service
+    image: het/ingestion-service:local
+    container_name: ingestion-service
+    ports:
+      - "8082:8082"
+    environment:
+      KAFKA_BROKERS: kafka:9092
+      # Simulator TAT mac dinh. Muon bat de test tai: doi thanh 50 (dung de 1000).
+      SIMULATION_REQUESTS: "0"
+      SIMULATION_ENDPOINT: http://ingestion-service:8082/api/v1/ingestion
+    depends_on:
+      kafka:
+        condition: service_healthy
+    mem_limit: 512m
+    restart: unless-stopped
+
+  usage-service:
+    build: ./usage-service
+    image: het/usage-service:local
+    container_name: usage-service
+    ports:
+      - "8083:8083"
+    environment:
+      KAFKA_BROKERS: kafka:9092
+      INFLUX_URL: http://influxdb:8086
+      INFLUX_TOKEN: my-token
+      INFLUX_ORG: andrew
+      INFLUX_BUCKET: usage-bucket
+      DEVICE_SERVICE_URL: http://device-service:8081
+      USER_SERVICE_URL: http://user-service:8080
+    depends_on:
+      kafka:
+        condition: service_healthy
+      influxdb:
+        condition: service_healthy
+    mem_limit: 512m
+    restart: unless-stopped
+
+  alert-service:
+    build: ./alert-service
+    image: het/alert-service:local
+    container_name: alert-service
+    ports:
+      - "8084:8084"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/home_energy_tracker
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      KAFKA_BROKERS: kafka:9092
+      MAIL_HOST: mailpit
+      MAIL_PORT: "1025"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    mem_limit: 512m
+    restart: unless-stopped
+
+  insight-service:
+    build: ./insight-service
+    image: het/insight-service:local
+    container_name: insight-service
+    ports:
+      - "8085:8085"
+    environment:
+      USAGE_SERVICE_URL: http://usage-service:8083
+      # Ollama chay tren MAY THAT (ngoai Docker) -> goi nguoc ra host.
+      OLLAMA_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: deepseek-coder:latest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - usage-service
+    mem_limit: 512m
+    restart: unless-stopped
+
+  api-gateway:
+    build: ./api-gateway
+    image: het/api-gateway:local
+    container_name: api-gateway
+    ports:
+      - "9000:9000"
+    environment:
+      USER_SERVICE_URL: http://user-service:8080
+      DEVICE_SERVICE_URL: http://device-service:8081
+      INGESTION_SERVICE_URL: http://ingestion-service:8082
+      INSIGHT_SERVICE_URL: http://insight-service:8085
+      KEYCLOAK_URL: http://keycloak:8080
+    depends_on:
+      - user-service
+      - device-service
+      - ingestion-service
+      - insight-service
+    mem_limit: 512m
+    restart: unless-stopped
+
+  # Khi app chay TRONG Docker, Prometheus phai scrape theo ten service
+  # chu khong phai host.docker.internal nua.
+  prometheus:
+    volumes:
+      - ./docker/prometheus/prometheus.docker.yml:/etc/prometheus/prometheus.yml:ro
