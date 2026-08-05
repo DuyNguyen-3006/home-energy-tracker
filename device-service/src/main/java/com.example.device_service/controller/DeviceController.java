@@ -59,7 +59,7 @@ public class DeviceController {
                                                                        @RequestParam(defaultValue = "0") int page,
                                                                        @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<DeviceDto> devices = deviceServiceInterface.getAddDevicesByUserId(userId, pageable);
+        Page<DeviceDto> devices = deviceServiceInterface.getDevicesByUserIdPaginated(userId, pageable);
         return ResponseEntity.ok(devices);
     }
 }

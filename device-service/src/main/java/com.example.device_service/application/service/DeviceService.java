@@ -6,9 +6,9 @@ import com.example.device_service.domain.entity.Device;
 import com.example.device_service.infrastructure.exception.DeviceNotFoundException;
 import com.example.device_service.infrastructure.repositories.DeviceRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,7 +70,7 @@ public class DeviceService implements DeviceServiceInterface {
         }
     }
 
-    public Page<DeviceDto> getAddDevicesByUserId(Long userId, Pageable pageable) {
+    public Page<DeviceDto> getDevicesByUserIdPaginated(Long userId, Pageable pageable) {
         try {
             Page<Device> devices = deviceRepository.findAllByUserId(userId, pageable);
             return devices.map(this::mapToDto);

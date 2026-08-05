@@ -18,5 +18,5 @@ public interface DeviceServiceInterface {
 
     List<DeviceDto> getAllDevicesByUserId(Long userId);
 
-    Page<DeviceDto> getAddDevicesByUserId(Long userId, Pageable pageable);
+    Page<DeviceDto> getDevicesByUserIdPaginated(Long userId, Pageable pageable);
 }
